@@ -9,10 +9,10 @@ class Solution {
             x = x/10;             // Remove the last digit
         }
         if(temp==num){            // Checks if reversed number is same as the original number that is stored in temp 
-            return true;          // If is same returns true
+            return true;          // If is same returns true, as it is a palindrome
         }
         else{
-            return false;         // Else it return false;
+            return false;         // Else it return false, as it is not a palindrome
         }
     }
 }
