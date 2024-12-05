@@ -9,7 +9,7 @@ class Solution {
         int low = 1, high = maxi;
         while(low<= high){
             int mid = (low+high)/2;
-            if(sumCheck(nums, mid, threshold, n)){
+            if(sumCheck(nums, mid, threshold, n)<=threshold){
                 high = mid-1;
             }else{
                 low = mid+1;
@@ -18,11 +18,12 @@ class Solution {
         return low;
     }
 
-    public boolean sumCheck(int[] nums, int mid, int threshold, int n){
+    public int sumCheck(int[] nums, int mid, int threshold, int n){
         int sum =0;
         for(int i=0; i<n; i++){
             sum+=Math.ceil((double)(nums[i])/(double)(mid));
         }
-        return sum<=threshold;
+        // return sum<=threshold;
+        return sum;
     }
 }
