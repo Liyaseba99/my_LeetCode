@@ -28,11 +28,13 @@ class Solution {
 
         while(second!=null){
             if(first.val!=second.val){
+                reverseList(newhead);
                 return false;
             }
             first = first.next;
             second = second.next;
         }
+        reverseList(newhead);
         return true;
     }
     public ListNode reverseList(ListNode head){
