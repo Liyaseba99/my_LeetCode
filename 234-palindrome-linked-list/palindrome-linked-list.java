@@ -21,27 +21,29 @@ class Solution {
             slow = slow.next;
         }
 
-        slow.next = reverseList(slow.next);
+        ListNode newhead = reverseList(slow.next);
 
-        slow = slow.next;
+        ListNode first = head, second = newhead;
+        
 
-        while(slow!=null){
-            if(head.val!=slow.val){
+        while(second!=null){
+            if(first.val!=second.val){
                 return false;
             }
-            head = head.next;
-            slow = slow.next;
+            first = first.next;
+            second = second.next;
         }
         return true;
     }
     public ListNode reverseList(ListNode head){
-        ListNode newHead = null;
-        while(head!=null){
-            ListNode next = head.next;
-            head.next = newHead;
-            newHead = head;
-            head = next;
+        ListNode temp = head;
+        ListNode prev = null;
+        while(temp!=null){
+            ListNode front = temp.next;
+            temp.next = prev;
+           prev = temp;
+            temp = front;
         }
-        return newHead;
+        return prev;
     }
 }
