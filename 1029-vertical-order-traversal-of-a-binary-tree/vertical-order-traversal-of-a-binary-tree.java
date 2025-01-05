@@ -17,10 +17,11 @@
     TreeNode node;
     int row;
     int col;
-    public Tuple(TreeNode _node, int _row, int _col){
+    public Tuple(TreeNode _node, int _col, int _row){
        node = _node;
-       row = _row;
        col = _col;
+       row = _row;
+       
     }
  }
 class Solution {
@@ -42,10 +43,10 @@ class Solution {
             }
             map.get(x).get(y).offer(node.val);
             if(node.left!=null){
-                q.offer(new Tuple(node.left,y+1, x-1));
+                q.offer(new Tuple(node.left, x-1, y+1));
             }
             if(node.right!=null){
-                q.offer(new Tuple(node.right, y+1, x+1));
+                q.offer(new Tuple(node.right, x+1, y+1));
             }
         }
             List<List<Integer>> result = new ArrayList<>();
