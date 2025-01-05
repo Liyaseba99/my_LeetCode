@@ -31,8 +31,8 @@ class Solution {
         while(!q.isEmpty()){
             Tuple tuple = q.poll();
             TreeNode node = tuple.node;
-            int x = tuple.row;
-            int y = tuple.col;
+            int x = tuple.col;
+            int y = tuple.row;
 
             if(!map.containsKey(x)){
                 map.put(x, new TreeMap<>());
@@ -42,10 +42,10 @@ class Solution {
             }
             map.get(x).get(y).offer(node.val);
             if(node.left!=null){
-                q.offer(new Tuple(node.left, x-1, y+1));
+                q.offer(new Tuple(node.left,y+1, x-1));
             }
             if(node.right!=null){
-                q.offer(new Tuple(node.right, x+1, y+1));
+                q.offer(new Tuple(node.right, y+1, x+1));
             }
         }
             List<List<Integer>> result = new ArrayList<>();
