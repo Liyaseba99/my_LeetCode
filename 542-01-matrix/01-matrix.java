@@ -27,7 +27,7 @@ class Solution {
                 int nrow = row + delrow[i];
                 int ncol = col + delcol[i];
                 if(nrow>=0 && nrow<n && ncol>=0 && ncol<m &&
-                   vis[nrow][ncol]==0 && mat[nrow][ncol]!=0){
+                   vis[nrow][ncol]==0){
                         vis[nrow][ncol]=1;
                         q.add(new tuple(nrow, ncol, step+1));
                    }
