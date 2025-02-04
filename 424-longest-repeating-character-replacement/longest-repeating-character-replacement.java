@@ -7,9 +7,10 @@ class Solution {
         while(r<n){
             hash[s.charAt(r)-'A']++;
             maxf = Math.max(maxf, hash[s.charAt(r)-'A']);
-            if((r-l+1)-maxf>k){
-                hash[s.charAt(l) -'A']--;
-            l++;
+            while((r-l+1)-maxf > k){
+                hash[s.charAt(l)-'A']--;
+
+                l++;
             }
             if((r-l+1)-maxf<=k){
                 maxlen = Math.max(maxlen, r-l+1);
